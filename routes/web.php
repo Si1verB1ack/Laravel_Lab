@@ -20,6 +20,10 @@ Route::get('/about', [HomeController::class, 'aboutpage']);
 
 Route::get('/contactus', [HomeController::class, 'contactuspage']);
 
+Route::get('/category', [HomeController::class, 'category']);
+Route::get('/product', [HomeController::class, 'product']);
+Route::get('/saleorder', [HomeController::class, 'saleorder']);
+
 Route::get('/home/{product}', function ($product) {
     return ("my name is $product");
 });

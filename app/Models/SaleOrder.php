@@ -11,5 +11,6 @@ class SaleOrder extends Model
 
     protected $fillable = [
         "TotalAmount",
+        "ProductID",
     ];
 }

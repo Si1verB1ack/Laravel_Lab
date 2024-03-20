@@ -21,6 +21,7 @@ class SaleOrderFactory extends Factory
     {
         return [
             "TotalAmount" => fake()->numberBetween(20,50),
+            "ProductID" => fake()->numberBetween(1,50),
         ];
     }
 }

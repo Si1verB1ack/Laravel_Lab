@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->double('TotalAmount');
             $table->timestamps();
+            $table->unsignedBigInteger('ProductID');
+            $table->foreign('ProductID')->references('id')->on('categories');
         });
     }
 
