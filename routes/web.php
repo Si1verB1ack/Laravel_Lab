@@ -26,9 +26,9 @@ Route::get('/product', [HomeController::class, 'product']);
 Route::get('/saleorder', [HomeController::class, 'saleorder']);
 
 
-Route::get('/select', [ShowAndAddController::class, 'select'])->name('select');
-Route::get('/add', [ShowAndAddController::class, 'add'])->name('add');
-Route::post('/save', [ShowAndAddController::class, 'save'])->name('save');
+Route::get('/select', [ShowAndAddController::class, 'select'])->name('selectpro');
+Route::get('/add', [ShowAndAddController::class, 'add'])->name('addpro');
+Route::post('/save', [ShowAndAddController::class, 'save'])->name('savepro');
 
 
 Route::get('/home/{product}', function ($product) {

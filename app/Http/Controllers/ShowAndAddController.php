@@ -17,7 +17,7 @@ class ShowAndAddController extends Controller
         return view('showandadd.add')->with('categories', $cateid);
     }
     public function save(Request $request){
-        $product = Product::create($request->all());
-        return redirect('select');
+        $pro = Product::create($request->all());
+        return redirect()->route('selectpro');
     }
 }

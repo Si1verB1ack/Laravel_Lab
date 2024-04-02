@@ -18,8 +18,9 @@
 </head>
 <body>
     <div class="card mx-auto" style="width: 40rem;">
-        @csrf
-        <form method="POST" action="{{route('save')}}">
+        
+        <form method="POST" action="{{route('savepro')}}">
+            @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="name" class="form-control" id="name" name="name">
