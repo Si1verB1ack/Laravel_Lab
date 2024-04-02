@@ -18,16 +18,16 @@
 </head>
 <body>
     <div class="card mx-auto" style="width: 40rem;">
-        
-        <form method="POST" action="{{route('savepro')}}">
+
+        <form method="POST" action="{{route('save')}}">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="name" class="form-control" id="name" name="name">
+                <input type="name" class="form-control" id="name" name="name" value="{{old('$product->Name')}}">
 
                 <label for="description" class="form-label">Description</label>
-                <input type="description" class="form-control" id="description" name="description">
-                
+                <textarea type="description" class="form-control" id="description" name="description"></textarea>
+
                 <label for="price" class="form-label">Price</label>
                 <input type="price" class="form-control" id="price" name="price">
 

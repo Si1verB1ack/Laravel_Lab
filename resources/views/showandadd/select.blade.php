@@ -16,7 +16,17 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="px-5 mt-2">
+    @if(session()->has('message'))
+    <div class="alert alert-info">
+        {{ session('message') }}
+    </div>
+    @endif
+    @if (Session::has('error'))
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        {{ session('error') }}
+    </div>
+    @endif
     <table class="table">
         <thead>
           <tr>
@@ -25,6 +35,7 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">QuantityInStock</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -32,10 +43,11 @@
                <tr>
                     <th scope="row">{{$pro->id}}</th>
                     <td>{{$pro->Name}}</td>
-                    <td>{{$pro->Description}}</td>
+                    <td>{{substr($pro->Description,0,50)}}</td>
                     <td>{{$pro->Price}}</td>
                     <td>{{$pro->QuantityInStock}}</td>
-                </tr> 
+                    <td><a href="{{route('detail',$pro->id)}}" class="btn btn-info">Edit</a></td>
+                </tr>
             @endforeach
         </tbody>
       </table>
