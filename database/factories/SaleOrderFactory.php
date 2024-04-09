@@ -20,8 +20,8 @@ class SaleOrderFactory extends Factory
     public function definition(): array
     {
         return [
-            "TotalAmount" => fake()->numberBetween(20,50),
-            "ProductID" => fake()->numberBetween(1,50),
+            "total_amount" => fake()->numberBetween(20,50),
+            "productid" => fake()->numberBetween(1,50),
         ];
     }
 }

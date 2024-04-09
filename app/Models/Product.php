@@ -13,7 +13,7 @@ class Product extends Model
         "name",
         "description",
         "price",
-        "QuantityInStock",
-        "CategoryID",
+        "quantity_in_stock",
+        "categoryid",
     ];
 }

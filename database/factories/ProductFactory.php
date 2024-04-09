@@ -21,8 +21,8 @@ class ProductFactory extends Factory
             "name" => fake()->name(),
             "description" => fake()->text(254),
             "price"=>fake()->randomFloat(2,5,10),
-            "QuantityInStock" => fake()->numberBetween(20,50),
-            "CategoryID"=>fake()->numberBetween(1,5),
+            "quantity_in_stock" => fake()->numberBetween(20,50),
+            "categoryid"=>fake()->numberBetween(1,5),
         ];
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sale_orders', function (Blueprint $table) {
             $table->id();
-            $table->double('TotalAmount');
+            $table->double('total_amount');
             $table->timestamps();
-            $table->unsignedBigInteger('ProductID');
-            $table->foreign('ProductID')->references('id')->on('products');
+            $table->unsignedBigInteger('productid')->nullable();
+            $table->foreign('productid')->references('id')->on('products')->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sale_order');
+        Schema::dropIfExists('sale_orders');
     }
 };

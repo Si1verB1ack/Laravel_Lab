@@ -18,30 +18,54 @@
 </head>
 <body>
     <div class="card mx-auto" style="width: 40rem;">
-
-        <form method="POST" action="{{route('save')}}">
+        <form method="POST" action="{{route('save')}}" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="name" class="form-label">Name</label>
-                <input type="name" class="form-control" id="name" name="name" value="{{old('$product->Name')}}">
+                <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
+                @if($errors->has('name') && !old('name'))
+                    @error('name')
+                    <p style="color:#aa2833;">{{ $message }}</p>
+                    @enderror
+                @endif
 
                 <label for="description" class="form-label">Description</label>
-                <textarea type="description" class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+                @if ($errors->has('description') && !old('description'))
+                    @error('description')
+                        <p style="color:#aa2833;">{{ $message }}</p>
+                    @enderror
+                @endif
 
                 <label for="price" class="form-label">Price</label>
-                <input type="price" class="form-control" id="price" name="price">
+                <input type="text" class="form-control" id="price" name="price" value="{{old('price')}}">
+                @if($errors->has('price') && !old('price'))
+                    @error('price')
+                        <p style="color:#aa2833;">{{ $message }}</p>
+                    @enderror
+                @endif
+                <label for="quantity_in_stock" class="form-label">Qty</label>
+                <input type="text" class="form-control" id="quantity_in_stock" name="quantity_in_stock" value="{{old('quantity_in_stock')}}">
+                @if($errors->has('quantity_in_stock') && !old('quantity_in_stock'))
+                    @error('quantity_in_stock')
+                        <p style="color:#aa2833;">{{ $message }}</p>
+                    @enderror
+                @endif
 
-                <label for="QuantityInStock" class="form-label">Qty</label>
-                <input type="QuantityInStock" class="form-control" id="QuantityInStock" name="QuantityInStock">
-
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="CategoryID">
-                    <option selected>Select Category</option>
+                <label for="categoryid" class="form-label">Category</label>
+                <select class="form-select" name="categoryid" id="categoryid">
                     @foreach ($categories as $cate)
                         <option value="{{$cate->id}}">{{$cate->name}}</option>
                     @endforeach
                 </select>
+                    <label for="image" class="form-label">Choose product image</label>
+                    <input type="file" name="image" id="image" class="form-control" value="{{ old('image') }}">
                 <br>
+                @if($errors->has('image') && !old('image'))
+                    @error('image')
+                        <p style="color:#aa2833;">{{ $message }}</p>
+                    @enderror
+                @endif
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>

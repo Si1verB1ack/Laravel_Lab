@@ -26,13 +26,18 @@ use App\Http\Controllers\ShowAndAddController;
 // Route::get('/saleorder', [HomeController::class, 'saleorder']);
 
 
-Route::get('/', [ShowAndAddController::class, 'select'])->name('select');
+Route::get('/products', [ShowAndAddController::class, 'select'])->name('select');
 Route::get('/products/add', [ShowAndAddController::class, 'add'])->name('add');
 Route::get('/products/{product}', [ShowAndAddController::class, 'detail'])->name('detail');
 Route::get('/products/edit/{product}', [ShowAndAddController::class, 'edit'])->name('update');
 Route::post('/products/saveedit/{product}', [ShowAndAddController::class, 'savedit'])->name('updatesave');
 Route::post('/product/saveadd', [ShowAndAddController::class, 'save'])->name('save');
 Route::post('/product/delete/{product}', [ShowAndAddController::class, 'delete'])->name('delete');
+
+Route::get('/', '\App\Http\Controllers\PayPalController@index');
+Route::get('/create/{amount}', '\App\Http\Controllers\PayPalController@create');
+Route::post('/complete', '\App\Http\Controllers\PayPalController@complete');
+
 
 
 // Route::get('/home/{product}', function ($product) {

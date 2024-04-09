@@ -25,23 +25,23 @@
         <form method="POST" action="{{route('updatesave',$product->id)}}" onsubmit="confirmation(this)">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="name" class="form-control" id="name" name="name" value="{{$product->Name}}">
+                <label for="text" class="form-label">Name</label>
+                <input type="name" class="form-control" id="name" name="name" value="{{$product->name}}">
 
                 <label for="description" class="form-label">Description</label>
-                <textarea type="description" class="form-control" id="description" name="description">{{$product->Description}}</textarea>
+                <textarea type="text" class="form-control" id="description" name="description">{{$product->description}}</textarea>
 
                 <label for="price" class="form-label">Price</label>
-                <input type="price" class="form-control" id="price" name="price" value="{{$product->Price}}">
+                <input type="text" class="form-control" id="price" name="price" value="{{$product->price}}">
 
-                <label for="QuantityInStock" class="form-label">Qty</label>
-                <input type="QuantityInStock" class="form-control" id="QuantityInStock" name="QuantityInStock" value="{{$product->QuantityInStock}}">
+                <label for="quantity_in_stock" class="form-label">Qty</label>
+                <input type="text" class="form-control" id="quantity_in_stock" name="quantity_in_stock" value="{{$product->quantity_in_stock}}">
 
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="CategoryID">
+                <label for="categoryid" class="form-label">Category</label>
+                <select class="form-select" name="categoryid">
                     @foreach ($categories as $cate)
                         <option
-                            @if ($product->CategoryID == $cate->id)
+                            @if ($product->categoryid == $cate->id)
                                 selected
                             @endif
                         value="{{$cate->id}}">{{$cate->name}}</option>

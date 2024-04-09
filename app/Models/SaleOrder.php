@@ -10,7 +10,7 @@ class SaleOrder extends Model
     use HasFactory;
 
     protected $fillable = [
-        "TotalAmount",
-        "ProductID",
+        "total_amount",
+        "productid",
     ];
 }
