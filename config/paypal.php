@@ -1,6 +1,4 @@
 <?php
-
-
 return [
     'base_url'      => env('PAYPAL_MODE', 'sandbox') === 'live' ? 'https://api-m.paypal.com' : 'https://api-m.sandbox.paypal.com',
     'mode'          => env('PAYPAL_MODE', 'sandbox'),

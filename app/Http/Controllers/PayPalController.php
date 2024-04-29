@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
+
 class PayPalController extends Controller
 {
     /**
@@ -51,7 +52,7 @@ class PayPalController extends Controller
                 [
                     "reference_id" => $id,
                     "amount"       => [
-                        "currency_code" => "GBP",
+                        "currency_code" => "USD",
                         "value"         => number_format($amount, 2),
                     ]
                 ]

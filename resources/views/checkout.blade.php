@@ -8,8 +8,7 @@
 
   <link rel="stylesheet" href="https://assets.edlin.app/bootstrap/v5.3/bootstrap.css">
 
-  <script src="https://www.paypal.com/sdk/js?client-id={{config('paypal.client_id')}}&currency=GBP&intent=capture"></script>
-
+  <script src="https://www.paypal.com/sdk/js?client-id={{config('paypal.client_id')}}&currency=USD&intent=capture" data-sdk-integration-source="sandbox"></script>
   <!-- Title -->
   <title>PayPal Laravel</title>
 </head>
@@ -74,7 +73,7 @@
       <div class="row mt-3">
         <div class="col-12 col-lg-6 offset-lg-3">
           <div class="input-group">
-            <span class="input-group-text">£</span>
+            <span class="input-group-text">$</span>
             <input type="text"
                    class="form-control"
                    id="paypal-amount"
@@ -89,6 +88,7 @@
         <div class="col-12 col-lg-6 offset-lg-3" id="payment_options"></div>
       </div>
     </div>
+
   </div>
   <div class="row">
     <div class="col-12 mt-3 mb-3">
@@ -99,7 +99,7 @@
 </div>
 </body>
 <script>
-  paypal.Buttons({
+   .Buttons({
     createOrder: function () {
       return fetch("/create/" + document.getElementById("paypal-amount").value)
         .then((response) => response.text())
